@@ -3,6 +3,6 @@ A bash script to extract GET parameters from a list of URLs
 
 Usage:
 
-chmod +x url2param.sh
+chmod +x script.sh
 
-./url2param.sh urls.txt
+./script.sh urls.txt
