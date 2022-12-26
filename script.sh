@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-echo "Running the script!"
+echo "Extracted Parameters:"
 echo " "
 
 # Read each line of the file
@@ -13,7 +13,3 @@ while read line; do
   # Print the extracted parameters
   echo "$params"
 done < urls.txt
-
-
-echo "Parameters Extracted."
-
