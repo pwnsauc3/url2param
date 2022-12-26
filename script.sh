@@ -2,20 +2,18 @@
 
 #!/bin/bash
 
-# Read each line of the input file
-while read -r line
-do
-  # Extract the query string from the URL
-  query_string=$(echo "$line" | sed 's/.*\?//')
+echo "Running the script!"
+echo " "
 
-  # Split the query string into individual parameters
-  IFS='&' read -r -a params <<< "$query_string"
+# Read each line of the file
+while read line; do
+  # Extract the parameters from the URL
+  params=$(echo "$line" | sed 's/.*\?//' | sed 's/&/\n/g' | cut -d'=' -f1 | sort | uniq)
 
-  # Print each parameter
-  for param in "${params[@]}"
-  do
-    # Split the parameter into its name and value
-    IFS='=' read -r name _ <<< "$param"
-    echo "$name"
-  done
-done < "$1"
+  # Print the extracted parameters
+  echo "$params"
+done < urls.txt
+
+
+echo "Parameters Extracted."
+
